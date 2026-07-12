@@ -6,14 +6,15 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playClickSound, playHoverSound } from "@/lib/audio";
-
 import { useLenis } from 'lenis/react';
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lenis = useLenis();
+  const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,6 +37,12 @@ export function Navbar() {
   };
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    if (pathname !== "/") {
+      setIsMobileMenuOpen(false);
+      playClickSound();
+      return; // Do not prevent default, let the link navigate
+    }
+
     e.preventDefault();
     if (lenis) {
       if (target === 'top') {
@@ -59,7 +66,7 @@ export function Navbar() {
         Home
       </Link>
       <Link
-        href="#about"
+        href="/#about"
         onClick={(e) => handleScrollTo(e, '#about')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
@@ -67,7 +74,7 @@ export function Navbar() {
         About
       </Link>
       <Link
-        href="#selected-works"
+        href="/#selected-works"
         onClick={(e) => handleScrollTo(e, '#selected-works')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
@@ -76,13 +83,17 @@ export function Navbar() {
       </Link>
       <Link
         href="/gallery"
+        onClick={() => {
+          setIsMobileMenuOpen(false);
+          playClickSound();
+        }}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
       >
         Gallery
       </Link>
       <Link
-        href="#contact"
+        href="/#contact"
         onClick={(e) => handleScrollTo(e, '#contact')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
