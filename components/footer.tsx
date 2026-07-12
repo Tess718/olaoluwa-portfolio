@@ -4,8 +4,11 @@ import { FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="w-full text-foreground flex flex-col items-center md:mt-40 mt-10">
-      <p className="text-xl md:text-2xl text-foreground/60 font-mono mb-8 text-center px-4">
+    <footer
+      id="contact"
+      className="w-full text-foreground flex flex-col items-center md:mt-40 mt-30"
+    >
+      <p className="text-xl md:text-2xl text-foreground/60 mb-8 text-center px-4">
         Send me an email to book a session
       </p>
 
@@ -41,6 +44,8 @@ export default function Footer() {
             <span>Built by</span>
             <a
               href="https://teslimliasu.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground/80 hover:text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors"
             >
               @devtess
@@ -52,13 +57,17 @@ export default function Footer() {
         <div className="flex items-center justify-center md:justify-end gap-4 order-2 md:order-3">
           <Link
             href="https://www.instagram.com/the_olao_luwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground hover:text-background transition-colors"
             aria-label="Instagram"
           >
             <FaInstagram className="w-4 h-4" />
           </Link>
           <Link
-            href="#"
+            href="https://www.tiktok.com/@enocholaoluwa10?_r=1&_t=ZS-97ymiZj817k"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground hover:text-background transition-colors"
             aria-label="TikTok"
           >

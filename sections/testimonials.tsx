@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Star } from "lucide-react";
 
 export type Testimonial = {
   clientName: string;
@@ -9,10 +10,7 @@ export type Testimonial = {
 };
 
 const colorPairs = [
-  { bg: "bg-[#F3F3F0]", text: "text-[#1C1C1C]", border: "border-[#1C1C1C]/10" },
-  { bg: "bg-[#1C1C1C]", text: "text-[#F3F3F0]", border: "border-[#F3F3F0]/10" },
-  { bg: "bg-[#D5D3CC]", text: "text-[#1C1C1C]", border: "border-[#1C1C1C]/10" },
-  { bg: "bg-[#2A2A2A]", text: "text-[#F3F3F0]", border: "border-[#F3F3F0]/10" },
+  { bg: "bg-[#4d4d4d]", text: "text-[#F3F3F0]", border: "border-foreground/20" },
 ];
 
 const TestimonialCard = ({
@@ -41,7 +39,7 @@ const TestimonialCard = ({
       <motion.div
         style={{
           scale,
-          top: `20px`,
+          top: `calc(20px + ${i * 30}px)`,
         }}
         className={`relative flex flex-col justify-between w-full h-[400px] md:h-[400px] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 origin-top ${colors.bg} ${colors.text} ${colors.border} border`}
       >
@@ -57,9 +55,14 @@ const TestimonialCard = ({
         </div>
 
         {/* Center massive quote */}
-        <div className="w-full">
+        <div className="w-full flex flex-col gap-6">
+          <div className="flex md:hidden items-center gap-1">
+            {[...Array(5)].map((_, index) => (
+              <Star key={index} className="w-4 h-4 fill-current" />
+            ))}
+          </div>
           <h3 className="text-lg font-semibold tracking-tighter leading-[1.1] md:leading-[1.1]">
-            "{testimonial.quote}"
+            &quot;{testimonial.quote}&quot;
           </h3>
         </div>
 
@@ -68,9 +71,11 @@ const TestimonialCard = ({
           <p className="text-xl md:text-3xl font-medium tracking-tight">
             {testimonial.clientName}
           </p>
-          <p className="text-sm uppercase tracking-widest opacity-50 font-semibold hidden md:block">
-            Client Review
-          </p>
+          <div className="hidden md:flex items-center gap-1">
+            {[...Array(5)].map((_, index) => (
+              <Star key={index} className="w-4 h-4 fill-current" />
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
@@ -109,11 +114,11 @@ export default function Testimonials({ items = [] }: { items?: Testimonial[] }) 
   return (
     <section ref={containerRef} className="relative bg-background">
       {/* Header outside the sticky area */}
-      <div className="text-center pt-20 pb-10 flex flex-col items-center">
+      <div className="text-center md:pt-40 pt-20 pb-10 flex flex-col items-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
           What people have to say
         </p>
-        <h2 className="text-5xl font-semibold text-foreground uppercase tracking-tight">
+        <h2 className="md:text-5xl text-4xl font-semibold text-foreground uppercase tracking-tight">
           Testimonials
         </h2>
       </div>

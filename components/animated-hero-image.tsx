@@ -20,7 +20,7 @@ export function AnimatedHeroImage() {
   return (
     <div
       ref={containerRef}
-      className="w-55 md:w-80 mx-auto overflow-hidden rounded-2xl"
+      className="w-55 md:w-100 mx-auto overflow-hidden rounded-2xl"
     >
       <motion.div style={{ scale }} className="w-full h-full">
         <Image

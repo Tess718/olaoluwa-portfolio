@@ -19,7 +19,7 @@ export default function Portfolio() {
           <h2 className="md:text-5xl text-4xl text-center font-semibold uppercase tracking-tight text-foreground">
             My Thought Process
           </h2>
-          <p className="text-center text-foreground leading-relaxed">
+          <p className="text-center text-foreground/60 leading-relaxed">
             My process starts with understanding the moment. I take time to
             observe the light, the mood, and what’s naturally happening before I
             shoot. I focus on using light and composition in a simple,
@@ -92,7 +92,7 @@ export default function Portfolio() {
             <h2 className="text-end md:text-5xl text-4xl uppercase font-semibold text-foreground mb-10 tracking-tight">
               My Thought Process
             </h2>
-            <p className="text-end text-foreground leading-relaxed">
+            <p className="text-end text-foreground/60 leading-relaxed">
               My process starts with understanding the moment. I take time to
               observe the light, the mood, and what’s naturally happening before
               I shoot. I focus on using light and composition in a simple,

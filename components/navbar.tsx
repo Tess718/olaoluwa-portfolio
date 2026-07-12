@@ -7,10 +7,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { playClickSound, playHoverSound } from "@/lib/audio";
 
+import { useLenis } from 'lenis/react';
+
 export function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lenis = useLenis();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,47 +35,55 @@ export function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const NavLinks = () => (
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    e.preventDefault();
+    if (lenis) {
+      if (target === 'top') {
+        lenis.scrollTo(0, { offset: 0, duration: 1.5 });
+      } else {
+        lenis.scrollTo(target, { offset: -100, duration: 1.5 });
+      }
+    }
+    setIsMobileMenuOpen(false);
+    playClickSound();
+  };
+
+  const renderNavLinks = () => (
     <>
       <Link
         href="/"
-        onClick={() => {
-          playClickSound();
-          setIsMobileMenuOpen(false);
-        }}
+        onClick={(e) => handleScrollTo(e, 'top')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
       >
         Home
       </Link>
       <Link
-        href="/about"
-        onClick={() => {
-          playClickSound();
-          setIsMobileMenuOpen(false);
-        }}
+        href="#about"
+        onClick={(e) => handleScrollTo(e, '#about')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
       >
         About
       </Link>
       <Link
+        href="#selected-works"
+        onClick={(e) => handleScrollTo(e, '#selected-works')}
+        onMouseEnter={playHoverSound}
+        className="text-sm font-medium hover:opacity-70 transition-opacity"
+      >
+        Showcase
+      </Link>
+      <Link
         href="/gallery"
-        onClick={() => {
-          playClickSound();
-          setIsMobileMenuOpen(false);
-        }}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
       >
         Gallery
       </Link>
       <Link
-        href="/contact"
-        onClick={() => {
-          playClickSound();
-          setIsMobileMenuOpen(false);
-        }}
+        href="#contact"
+        onClick={(e) => handleScrollTo(e, '#contact')}
         onMouseEnter={playHoverSound}
         className="text-sm font-medium hover:opacity-70 transition-opacity"
       >
@@ -96,7 +107,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
-          <NavLinks />
+          {renderNavLinks()}
         </div>
 
         {/* Controls */}
@@ -141,7 +152,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 w-full h-[calc(100dvh-77px)] bg-background flex flex-col items-center pt-24 gap-8 md:hidden"
           >
-            <NavLinks />
+            {renderNavLinks()}
           </motion.div>
         )}
       </AnimatePresence>

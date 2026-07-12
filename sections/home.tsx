@@ -17,13 +17,13 @@ export default function Home() {
       <h1 className="md:text-5xl text-4xl uppercase font-semibold text-center text-foreground tracking-tight">
         Capturing the Art in the Everyday.
       </h1>
-      <p className="text-lg md:text-2xl text-center text-foreground">
+      <p className="text-lg md:text-2xl text-center text-foreground/60">
         Visual storytelling and editorial photography designed <br /> to make
         you stop and look.
       </p>
       <AnimatedHeroImage />
 
-      <p className="text-xl md:text-2xl text-center text-foreground">
+      <p className="text-xl md:text-2xl text-center text-foreground/60">
         Bold photography that turns fleeting seconds <br /> into permanent art.
       </p>
     </div>

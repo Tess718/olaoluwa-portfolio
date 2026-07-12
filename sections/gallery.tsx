@@ -147,6 +147,7 @@ export default function Gallery({ items = [] }: { items?: GalleryItem[] }) {
               </div>
               <Link
                 href={project.link || "#"}
+                {...(project.link && project.link !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-xs md:text-sm font-medium uppercase text-foreground/50 border-b border-foreground/50 pb-1 hover:text-foreground hover:border-foreground transition-colors"
               >
                 View Album

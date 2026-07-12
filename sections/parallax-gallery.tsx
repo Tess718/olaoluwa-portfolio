@@ -31,12 +31,13 @@ function ParallaxColumn({
       {images.map((image, index) => {
         const Wrapper = image.link ? Link : "div";
         return (
-          <Wrapper
-            href={image.link || "#"}
-            key={index}
-            className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
-          >
-            <Image
+            <Wrapper
+              key={index}
+              href={image.link || "#"}
+              {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
+            >
+              <Image
               src={image.src}
               alt={image.title}
               fill
@@ -104,7 +105,7 @@ export default function ParallaxGallery({
   });
 
   return (
-    <section className="pt-30 pb-20">
+    <section className="pt-40">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -115,7 +116,7 @@ export default function ParallaxGallery({
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-10">
           All Work
         </p>
-        <h1 className="text-5xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">
+        <h1 className="md:text-5xl text-4xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">
           Gallery
         </h1>
       </motion.div>
@@ -137,8 +138,9 @@ export default function ParallaxGallery({
               const Wrapper = image.link ? Link : "div";
               return (
                 <Wrapper
-                  href={image.link || "#"}
                   key={index}
+                  href={image.link || "#"}
+                  {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
                 >
                   <Image

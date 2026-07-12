@@ -66,7 +66,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
           Selected Work
         </p>
-        <h2 className="text-5xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">
+        <h2 className="md:text-5xl text-4xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">
           ShowCase
         </h2>
       </motion.div>
@@ -110,7 +110,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                       {project.title}
                     </h3>
                     <div className="w-12 h-[1px] bg-foreground/20 mb-6" />
-                    <p className="text-foreground/50 leading-relaxed max-w-sm text-sm lg:text-base">
+                    <p className="text-foreground/60 leading-relaxed max-w-sm text-sm lg:text-base">
                       {project.description ||
                         "A collection of moments captured with intention, using natural light and composition to tell an honest story."}
                     </p>
@@ -124,6 +124,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   >
                     <Link
                       href={project.link || "#"}
+                      {...(project.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors group/link"
                     >
                       View Album
@@ -190,6 +191,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   </p>
                   <Link
                     href={project.link || "#"}
+                    {...(project.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors mt-2"
                   >
                     View Album
