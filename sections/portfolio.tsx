@@ -8,7 +8,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-background relative pt-40 overflow-hidden"
+      className="bg-background relative md:pt-40 pt-20 overflow-hidden"
     >
       {/* --- MOBILE LAYOUT --- */}
       <div className="flex flex-col gap-8 md:hidden">
@@ -16,7 +16,7 @@ export default function Portfolio() {
           <p className="text-xs text-center font-semibold uppercase tracking-[0.3em] text-foreground/40">
             The Approach
           </p>
-          <h2 className="text-5xl text-center font-semibold uppercase tracking-tight text-foreground">
+          <h2 className="md:text-5xl text-4xl text-center font-semibold uppercase tracking-tight text-foreground">
             My Thought Process
           </h2>
           <p className="text-center text-foreground leading-relaxed">
@@ -89,7 +89,7 @@ export default function Portfolio() {
             <p className="text-end text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4 mt-2">
               The Approach
             </p>
-            <h2 className="text-end text-5xl uppercase font-semibold text-foreground mb-10 tracking-tight">
+            <h2 className="text-end md:text-5xl text-4xl uppercase font-semibold text-foreground mb-10 tracking-tight">
               My Thought Process
             </h2>
             <p className="text-end text-foreground leading-relaxed">

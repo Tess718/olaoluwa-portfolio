@@ -112,7 +112,7 @@ export default function ParallaxGallery({
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="mb-10"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-10">
           All Work
         </p>
         <h1 className="text-5xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">

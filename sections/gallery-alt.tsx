@@ -54,7 +54,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
         ];
 
   return (
-    <section id="selected-works" className="pt-40">
+    <section id="selected-works" className="md:pt-40 pt-20">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

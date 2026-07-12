@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="pt-40">
+    <div className="md:pt-40 pt-20">
       <section id="about">
-        <div className="grid md:grid-cols-2 gap-40 items-start">
+        <div className="grid md:grid-cols-2 md:gap-40 gap-15 items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
               Behind the lens
             </p>
-            <h2 className="text-5xl uppercase font-semibold text-start text-foreground mb-10 tracking-tight">
+            <h2 className="md:text-5xl text-4xl uppercase font-semibold text-start text-foreground mb-10 tracking-tight">
               About Me
             </h2>
             <p className="text-foreground">

@@ -13,11 +13,11 @@ const inter = Inter({
 });
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col justify-center md:pt-40 gap-8">
-      <h1 className="text-5xl uppercase font-semibold text-center text-foreground tracking-tight">
+    <div className="min-h-screen flex flex-col justify-center pt-40 gap-8">
+      <h1 className="md:text-5xl text-4xl uppercase font-semibold text-center text-foreground tracking-tight">
         Capturing the Art in the Everyday.
       </h1>
-      <p className="text-xl md:text-2xl text-center text-foreground">
+      <p className="text-lg md:text-2xl text-center text-foreground">
         Visual storytelling and editorial photography designed <br /> to make
         you stop and look.
       </p>

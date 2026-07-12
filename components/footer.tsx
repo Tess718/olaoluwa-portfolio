@@ -4,7 +4,7 @@ import { FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="w-full text-foreground flex flex-col items-center mt-30">
+    <footer className="w-full text-foreground flex flex-col items-center md:mt-40 mt-10">
       <p className="text-xl md:text-2xl text-foreground/60 font-mono mb-8 text-center px-4">
         Send me an email to book a session
       </p>
@@ -12,9 +12,9 @@ export default function Footer() {
       {/* Dashed Pill Button */}
       <a
         href="mailto:enocholaoluwa58@gmail.com"
-        className="relative group flex items-center justify-center px-12 py-10 md:px-16 md:py-16 rounded-[100px] border-4 border-dashed border-foreground/20 hover:border-foreground/50 transition-colors cursor-pointer mb-10 w-full max-w-2xl"
+        className="relative group flex items-center justify-center px-8 py-8 md:px-16 md:py-16 rounded-[100px] border-4 border-dashed border-foreground/20 hover:border-foreground/50 transition-colors cursor-pointer mb-10 w-full max-w-2xl"
       >
-        <span className="text-5xl md:text-6xl font-mono text-foreground/60 group-hover:text-foreground transition-colors text-center">
+        <span className="text-3xl md:text-6xl font-mono text-foreground/60 group-hover:text-foreground transition-colors text-center">
           Contact me
         </span>
       </a>
