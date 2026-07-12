@@ -18,13 +18,14 @@ export default function Home() {
         Capturing the Art in the Everyday.
       </h1>
       <p className="text-lg md:text-2xl text-center text-foreground/60">
-        Visual storytelling and editorial photography designed <br /> to make
-        you stop and look.
+        Visual storytelling and editorial photography designed{" "}
+        <br className="max-sm:hidden" /> to make you stop and look.
       </p>
       <AnimatedHeroImage />
 
       <p className="text-xl md:text-2xl text-center text-foreground/60">
-        Bold photography that turns fleeting seconds <br /> into permanent art.
+        Bold photography that turns fleeting seconds{" "}
+        <br className="max-sm:hidden" /> into permanent art.
       </p>
     </div>
   );

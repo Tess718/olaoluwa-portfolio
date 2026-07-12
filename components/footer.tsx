@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="w-full text-foreground flex flex-col items-center md:mt-40 mt-30"
+      className="w-full text-foreground flex flex-col items-center mt-40"
     >
       <p className="text-xl md:text-2xl text-foreground/60 mb-8 text-center px-4">
         Send me an email to book a session

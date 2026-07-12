@@ -114,7 +114,7 @@ export default function Testimonials({ items = [] }: { items?: Testimonial[] }) 
   return (
     <section ref={containerRef} className="relative bg-background">
       {/* Header outside the sticky area */}
-      <div className="text-center md:pt-40 pt-20 pb-10 flex flex-col items-center">
+      <div className="text-center md:pt-40 pt-30 pb-10 flex flex-col items-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
           What people have to say
         </p>

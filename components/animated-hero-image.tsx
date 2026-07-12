@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import { useRef } from "react";
 
 export function AnimatedHeroImage() {
@@ -20,10 +20,10 @@ export function AnimatedHeroImage() {
   return (
     <div
       ref={containerRef}
-      className="w-55 md:w-100 mx-auto overflow-hidden rounded-2xl"
+      className="w-full md:w-100 mx-auto overflow-hidden rounded-2xl"
     >
       <motion.div style={{ scale }} className="w-full h-full">
-        <Image
+        <ImageWithSkeleton
           src="https://ik.imagekit.io/kto43sqc5/IMG_9888edit.jpg?updatedAt=1783639799909"
           alt="Enoch Photo"
           width={1000}

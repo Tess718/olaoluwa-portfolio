@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="md:pt-40 pt-20">
+    <section id="about" className="md:pt-40 pt-30">
       <div className="grid md:grid-cols-2 md:gap-40 gap-15 items-start">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
@@ -44,7 +44,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <Image
+              <ImageWithSkeleton
                 alt="About grid"
                 src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0022.jpg?updatedAt=1783676357737"
                 fill
@@ -60,7 +60,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             >
-              <Image
+              <ImageWithSkeleton
                 alt="About grid"
                 src="https://ik.imagekit.io/kto43sqc5/DRM09804.jpg?updatedAt=1783669294573"
                 fill
@@ -81,7 +81,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              <Image
+              <ImageWithSkeleton
                 alt="About grid"
                 src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0009.jpg?updatedAt=1783676357964"
                 fill
@@ -96,7 +96,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             >
-              <Image
+              <ImageWithSkeleton
                 alt="About grid"
                 src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0025.jpg?updatedAt=1783676357957"
                 fill
@@ -111,7 +111,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             >
-              <Image
+              <ImageWithSkeleton
                 alt="About grid"
                 src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0013.jpg?updatedAt=1783676357698"
                 fill

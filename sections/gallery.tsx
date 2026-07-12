@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
@@ -128,7 +128,7 @@ export default function Gallery({ items = [] }: { items?: GalleryItem[] }) {
             className="w-full md:w-[calc(33.333%-1.5rem)] flex-none snap-start flex flex-col gap-4 md:gap-6"
           >
             <div className="relative w-full aspect-square md:aspect-[4/5]">
-              <Image
+              <ImageWithSkeleton
                 src={project.src}
                 alt={project.title}
                 fill

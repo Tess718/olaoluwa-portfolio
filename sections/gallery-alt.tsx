@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -54,7 +54,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
         ];
 
   return (
-    <section id="selected-works" className="md:pt-40 pt-20">
+    <section id="selected-works" className="md:pt-40 pt-30">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -146,7 +146,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src={project.src}
                       alt={project.title}
                       fill
@@ -169,7 +169,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0"
                   >
-                    <Image
+                    <ImageWithSkeleton
                       src={project.src}
                       alt={project.title}
                       fill

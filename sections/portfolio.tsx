@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import { MagneticButton } from "@/components/magnetic-button";
 
 export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-background relative md:pt-40 pt-20 overflow-hidden"
+      className="bg-background relative md:pt-40 pt-30 overflow-hidden"
     >
       {/* --- MOBILE LAYOUT --- */}
       <div className="flex flex-col gap-8 md:hidden">
@@ -39,7 +40,7 @@ export default function Portfolio() {
             viewport={{ once: true, margin: "-50px" }}
             className="absolute inset-0"
           >
-            <Image
+            <ImageWithSkeleton
               src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0009.jpg?updatedAt=1783676357964"
               alt="Portfolio Showcase"
               fill
@@ -76,7 +77,7 @@ export default function Portfolio() {
             viewport={{ once: true, margin: "-100px" }}
             className="absolute inset-0"
           >
-            <Image
+            <ImageWithSkeleton
               src="https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0009.jpg?updatedAt=1783676357964"
               alt="Portfolio Background"
               fill

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -37,7 +37,7 @@ function ParallaxColumn({
               {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
             >
-              <Image
+              <ImageWithSkeleton
               src={image.src}
               alt={image.title}
               fill
@@ -143,7 +143,7 @@ export default function ParallaxGallery({
                   {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
                 >
-                  <Image
+                  <ImageWithSkeleton
                     src={image.src}
                     alt={image.title}
                     fill

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Enoch Olaoluwa Portfolio",
     images: [
       {
-        url: "https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0022.jpg?updatedAt=1783676357737", // Using one of your striking gallery images
+        url: "https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0022.jpg?updatedAt=1783676357737",
         width: 1200,
         height: 630,
         alt: "Enoch Olaoluwa Photography Portfolio",
