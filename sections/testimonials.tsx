@@ -10,7 +10,9 @@ export type Testimonial = {
 };
 
 const colorPairs = [
-  { bg: "bg-[#4d4d4d]", text: "text-[#F3F3F0]", border: "border-foreground/20" },
+  { bg: "bg-[#fdebf3]", text: "text-[#333]", border: "border-current/20" },
+  { bg: "bg-[#c7ce9a]", text: "text-[#333]", border: "border-current/20" },
+  { bg: "bg-[#ffd869]", text: "text-[#333]", border: "border-current/20" },
 ];
 
 const TestimonialCard = ({
@@ -45,7 +47,7 @@ const TestimonialCard = ({
       >
         {/* Top bar with pill */}
         <div className="flex justify-between items-center w-full">
-          <div className={`px-5 py-2 rounded-full border ${colors.border} text-xs md:text-sm font-semibold uppercase tracking-widest`}>
+          <div className={`px-5 py-2 rounded-full border ${colors.border} text-xs md:text-sm font-medium uppercase tracking-widest`}>
             Testimonial {i + 1}
           </div>
           <div className="w-12 h-12 rounded-full border border-current opacity-20 flex items-center justify-center">
@@ -61,7 +63,7 @@ const TestimonialCard = ({
               <Star key={index} className="w-4 h-4 fill-current" />
             ))}
           </div>
-          <h3 className="text-lg font-semibold tracking-tighter leading-[1.1] md:leading-[1.1]">
+          <h3 className="text-lg font-medium tracking-tighter leading-[1.1] md:leading-[1.1]">
             &quot;{testimonial.quote}&quot;
           </h3>
         </div>
@@ -115,7 +117,7 @@ export default function Testimonials({ items = [] }: { items?: Testimonial[] }) 
     <section ref={containerRef} className="relative bg-background">
       {/* Header outside the sticky area */}
       <div className="text-center md:pt-40 pt-30 pb-10 flex flex-col items-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
+        <p className="text-xs font-medium uppercase tracking-[0.3em] text-foreground/40 mb-4">
           What people have to say
         </p>
         <h2 className="md:text-5xl text-4xl font-semibold text-foreground uppercase tracking-tight">

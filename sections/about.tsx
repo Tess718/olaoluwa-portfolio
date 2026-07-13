@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="md:pt-40 pt-30">
+    <section id="about" className="md:pt-40 pt-30 overflow-hidden">
       <div className="grid md:grid-cols-2 md:gap-40 gap-15 items-start">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">

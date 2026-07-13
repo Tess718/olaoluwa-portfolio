@@ -4,6 +4,7 @@ import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { playClickSound, playHoverSound } from "@/lib/audio";
 
 type SelectedWorkItem = {
   title: string;
@@ -90,7 +91,9 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                 {/* Text Side */}
                 <div
                   className={`col-span-5 flex flex-col justify-between p-10 lg:p-16 ${
-                    isEven ? "order-1 md:ps-0 lg:ps-0" : "order-2 md:pe-0 md:pe-0"
+                    isEven
+                      ? "order-1 md:ps-0 lg:ps-0"
+                      : "order-2 md:pe-0 md:pe-0"
                   }`}
                 >
                   <motion.div
@@ -124,8 +127,12 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   >
                     <Link
                       href={project.link || "#"}
-                      {...(project.link && project.link !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      {...(project.link && project.link !== "#"
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors group/link"
+                      onClick={playClickSound}
+                      onMouseEnter={playHoverSound}
                     >
                       View Album
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
@@ -151,7 +158,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                       alt={project.title}
                       fill
                       sizes="60vw"
-                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-[50%_calc(50%+6rem)] transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Subtle gradient overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
@@ -191,8 +198,12 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   </p>
                   <Link
                     href={project.link || "#"}
-                    {...(project.link && project.link !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(project.link && project.link !== "#"
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors mt-2"
+                    onClick={playClickSound}
+                    onMouseEnter={playHoverSound}
                   >
                     View Album
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -218,6 +229,8 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
         <Link
           href="/gallery"
           className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-foreground/20 text-sm font-medium uppercase tracking-widest text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+          onClick={playClickSound}
+          onMouseEnter={playHoverSound}
         >
           View Full Gallery
           <ArrowUpRight className="w-4 h-4" />

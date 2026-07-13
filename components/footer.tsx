@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FaInstagram, FaTiktok } from "react-icons/fa6";
+import { playClickSound, playHoverSound } from "@/lib/audio";
 
 export default function Footer() {
   return (
@@ -16,6 +19,8 @@ export default function Footer() {
       <a
         href="mailto:enocholaoluwa58@gmail.com"
         className="relative group flex items-center justify-center px-8 py-8 md:px-16 md:py-16 rounded-[100px] border-4 border-dashed border-foreground/20 hover:border-foreground/50 transition-colors cursor-pointer mb-10 w-full max-w-2xl"
+        onClick={playClickSound}
+        onMouseEnter={playHoverSound}
       >
         <span className="text-3xl md:text-6xl font-mono text-foreground/60 group-hover:text-foreground transition-colors text-center">
           Contact me
@@ -29,6 +34,8 @@ export default function Footer() {
           <a
             href="mailto:enocholaoluwa58@gmail.com"
             className="flex items-center gap-4 text-foreground/60 font-mono text-sm hover:text-foreground transition-all duration-300 group"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
           >
             <div className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
               <Mail className="w-4 h-4" />
@@ -47,6 +54,8 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/80 hover:text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors"
+              onClick={playClickSound}
+              onMouseEnter={playHoverSound}
             >
               @devtess
             </a>
@@ -61,6 +70,8 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground hover:text-background transition-colors"
             aria-label="Instagram"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
           >
             <FaInstagram className="w-4 h-4" />
           </Link>
@@ -70,6 +81,8 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground hover:text-background transition-colors"
             aria-label="TikTok"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
           >
             <FaTiktok className="w-4 h-4" />
           </Link>
