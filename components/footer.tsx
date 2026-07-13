@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import { FaInstagram, FaTiktok } from "react-icons/fa6";
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa6";
 import { playClickSound, playHoverSound } from "@/lib/audio";
 
 export default function Footer() {
@@ -46,7 +46,9 @@ export default function Footer() {
 
         {/* Center: Copyright */}
         <div className="text-center text-foreground/40 font-mono text-sm flex flex-col gap-1 order-3 md:order-2">
-          <p className="uppercase tracking-widest">The Olaoluwa 2026 ©</p>
+          <p className="uppercase tracking-widest">
+            The Olaoluwa {new Date().getFullYear()} ©
+          </p>
           <div className="flex gap-1 justify-center items-center">
             <span>Built by</span>
             <a
@@ -85,6 +87,17 @@ export default function Footer() {
             onMouseEnter={playHoverSound}
           >
             <FaTiktok className="w-4 h-4" />
+          </Link>
+          <Link
+            href="https://wa.me/2348104634608"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center text-foreground/60 hover:bg-foreground hover:text-background transition-colors"
+            aria-label="Whatsapp"
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
+          >
+            <FaWhatsapp className="w-4 h-4" />
           </Link>
         </div>
       </div>
