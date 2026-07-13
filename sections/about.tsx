@@ -1,7 +1,5 @@
-"use client";
-
 import { ImageWithSkeleton } from "@/components/image-with-skeleton";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/animations/fade-in";
 
 export default function About() {
   return (
@@ -37,12 +35,9 @@ export default function About() {
           {/* Row 1 */}
           <div className="grid grid-cols-12 lg:[grid-template-columns:repeat(14,minmax(0,1fr))] gap-2 items-end">
             <div className="col-span-2 lg:col-span-3"></div>
-            <motion.div
+            <FadeIn
               className="relative col-span-4 h-[160px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              yOffset={30}
             >
               <ImageWithSkeleton
                 alt="About grid"
@@ -52,13 +47,11 @@ export default function About() {
                 className="object-cover object-top rounded-lg"
                 priority
               />
-            </motion.div>
-            <motion.div
+            </FadeIn>
+            <FadeIn
               className="relative col-span-4 h-[240px]"
-              initial={{ opacity: 0, y: -30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              yOffset={-30}
+              delay={0.1}
             >
               <ImageWithSkeleton
                 alt="About grid"
@@ -68,18 +61,17 @@ export default function About() {
                 className="object-cover object-top rounded-lg"
                 priority
               />
-            </motion.div>
+            </FadeIn>
             <div className="col-span-2 lg:col-span-3"></div>
           </div>
 
           {/* Row 2 */}
           <div className="grid grid-cols-12 lg:[grid-template-columns:repeat(14,minmax(0,1fr))] gap-2">
-            <motion.div
+            <FadeIn
               className="relative col-span-4 lg:col-span-5 h-[128px]"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              yOffset={0}
+              xOffset={-30}
+              delay={0.2}
             >
               <ImageWithSkeleton
                 alt="About grid"
@@ -88,13 +80,11 @@ export default function About() {
                 sizes="(max-width: 640px) 50vw, 200px"
                 className="object-cover object-top rounded-lg"
               />
-            </motion.div>
-            <motion.div
+            </FadeIn>
+            <FadeIn
               className="relative col-span-4 h-[240px]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              yOffset={40}
+              delay={0.3}
             >
               <ImageWithSkeleton
                 alt="About grid"
@@ -103,13 +93,12 @@ export default function About() {
                 sizes="(max-width: 640px) 50vw, 200px"
                 className="object-cover object-top rounded-lg"
               />
-            </motion.div>
-            <motion.div
+            </FadeIn>
+            <FadeIn
               className="relative col-span-4 lg:col-span-5 h-[128px]"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+              yOffset={0}
+              xOffset={30}
+              delay={0.4}
             >
               <ImageWithSkeleton
                 alt="About grid"
@@ -118,7 +107,7 @@ export default function About() {
                 sizes="(max-width: 640px) 50vw, 200px"
                 className="object-cover object-center rounded-lg"
               />
-            </motion.div>
+            </FadeIn>
           </div>
         </div>
       </div>

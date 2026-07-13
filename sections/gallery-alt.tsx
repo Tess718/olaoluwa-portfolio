@@ -1,10 +1,8 @@
-"use client";
-
 import { ImageWithSkeleton } from "@/components/image-with-skeleton";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { playClickSound, playHoverSound } from "@/lib/audio";
+import { FadeIn } from "@/components/animations/fade-in";
+import { ScaleIn } from "@/components/animations/scale-in";
+import { InteractiveLink } from "@/components/interactive-link";
 
 type SelectedWorkItem = {
   title: string;
@@ -57,20 +55,14 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
   return (
     <section id="selected-works" className="md:pt-40 pt-30">
       {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-10"
-      >
+      <FadeIn className="mb-10" yOffset={30}>
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/40 mb-4">
           Selected Work
         </p>
         <h2 className="md:text-5xl text-4xl font-semibold text-foreground uppercase tracking-tight leading-[0.9]">
           ShowCase
         </h2>
-      </motion.div>
+      </FadeIn>
 
       {/* Editorial Grid */}
       <div className="flex flex-col gap-0">
@@ -78,12 +70,9 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
           const isEven = index % 2 === 0;
 
           return (
-            <motion.div
+            <FadeIn
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              yOffset={0}
               className="group border-t border-foreground/10 last:border-b"
             >
               {/* Desktop Layout */}
@@ -96,16 +85,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                       : "order-2 md:pe-0 md:pe-0"
                   }`}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.2,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
+                  <FadeIn yOffset={40} delay={0.2}>
                     <span className="text-xs font-medium uppercase tracking-[0.25em] text-foreground/40 block mb-3">
                       {project.date}
                     </span>
@@ -117,27 +97,20 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                       {project.description ||
                         "A collection of moments captured with intention, using natural light and composition to tell an honest story."}
                     </p>
-                  </motion.div>
+                  </FadeIn>
 
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
-                    <Link
+                  <FadeIn yOffset={0} delay={0.4}>
+                    <InteractiveLink
                       href={project.link || "#"}
                       {...(project.link && project.link !== "#"
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors group/link"
-                      onClick={playClickSound}
-                      onMouseEnter={playHoverSound}
+                      className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-[#ec4624] transition-colors group/link"
                     >
                       View Album
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                    </Link>
-                  </motion.div>
+                    </InteractiveLink>
+                  </FadeIn>
                 </div>
 
                 {/* Image Side */}
@@ -146,11 +119,9 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                     isEven ? "order-2" : "order-1"
                   }`}
                 >
-                  <motion.div
-                    initial={{ scale: 1.1 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  <ScaleIn
+                    initialScale={1.1}
+                    duration={1.2}
                     className="absolute inset-0"
                   >
                     <ImageWithSkeleton
@@ -162,18 +133,16 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                     />
                     {/* Subtle gradient overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-                  </motion.div>
+                  </ScaleIn>
                 </div>
               </div>
 
               {/* Mobile Layout */}
               <div className="md:hidden flex flex-col">
                 <div className="relative w-full aspect-[4/5] overflow-hidden">
-                  <motion.div
-                    initial={{ scale: 1.08 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                  <ScaleIn
+                    initialScale={1.08}
+                    duration={1}
                     className="absolute inset-0"
                   >
                     <ImageWithSkeleton
@@ -183,7 +152,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                       sizes="100vw"
                       className="object-cover object-center"
                     />
-                  </motion.div>
+                  </ScaleIn>
                 </div>
                 <div className="py-8 flex flex-col gap-3">
                   <span className="text-xs font-medium uppercase tracking-[0.25em] text-foreground/40">
@@ -196,46 +165,36 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                     {project.description ||
                       "A collection of moments captured with intention."}
                   </p>
-                  <Link
+                  <InteractiveLink
                     href={project.link || "#"}
                     {...(project.link && project.link !== "#"
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                     className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors mt-2"
-                    onClick={playClickSound}
-                    onMouseEnter={playHoverSound}
                   >
                     View Album
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </InteractiveLink>
                 </div>
               </div>
-            </motion.div>
+            </FadeIn>
           );
         })}
       </div>
 
       {/* Bottom CTA — links to full gallery */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-10 flex flex-col items-center text-center"
-      >
+      <FadeIn yOffset={20} delay={0.2} className="mt-10 flex flex-col items-center text-center">
         <p className="text-foreground/40 text-sm uppercase tracking-widest mb-6">
           Want to see more?
         </p>
-        <Link
+        <InteractiveLink
           href="/gallery"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-foreground/20 text-sm font-medium uppercase tracking-widest text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-          onClick={playClickSound}
-          onMouseEnter={playHoverSound}
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-foreground/20 text-sm font-medium uppercase tracking-widest text-foreground hover:bg-[#ec4624] hover:border-0 hover:text-background transition-all duration-300"
         >
           View Full Gallery
           <ArrowUpRight className="w-4 h-4" />
-        </Link>
-      </motion.div>
+        </InteractiveLink>
+      </FadeIn>
     </section>
   );
 }

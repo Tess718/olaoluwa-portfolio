@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/animations/fade-in";
 import { ImageWithSkeleton } from "@/components/image-with-skeleton";
 import { MagneticButton } from "@/components/magnetic-button";
 
@@ -33,11 +31,11 @@ export default function Portfolio() {
         </div>
 
         <div className="relative w-full aspect-[4/5] rounded-[32px] overflow-hidden">
-          <motion.div
-            initial={{ y: 50, scale: 1.05, opacity: 0 }}
-            whileInView={{ y: 0, scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "-50px" }}
+          <FadeIn
+            yOffset={50}
+            initialScale={1.05}
+            duration={0.8}
+            margin="-50px"
             className="absolute inset-0"
           >
             <ImageWithSkeleton
@@ -46,7 +44,7 @@ export default function Portfolio() {
               fill
               className="object-cover"
             />
-          </motion.div>
+          </FadeIn>
         </div>
 
         <div className="flex justify-between items-center">
@@ -70,11 +68,10 @@ export default function Portfolio() {
         {/* Outer Container to hold the shape */}
         <div className="relative w-full h-[550px] lg:h-[650px] rounded-tl-[40px] overflow-hidden">
           {/* The Base Image */}
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
+          <FadeIn
+            yOffset={100}
+            duration={1}
+            margin="-100px"
             className="absolute inset-0"
           >
             <ImageWithSkeleton
@@ -83,7 +80,7 @@ export default function Portfolio() {
               fill
               className="object-cover object-top"
             />
-          </motion.div>
+          </FadeIn>
 
           {/* 1. Top-Right Cutout */}
           <div className="absolute top-0 right-0 w-[65%] bg-background rounded-bl-[40px] pb-12 pl-12 z-10">

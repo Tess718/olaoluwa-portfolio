@@ -67,6 +67,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/theme-provider";
 import { PreloaderWrapper } from "@/components/preloader-wrapper";
 import { SmoothScrolling } from "@/components/smooth-scrolling";
+import { CustomCursor } from "@/components/custom-cursor";
 
 export default function RootLayout({
   children,
@@ -87,6 +88,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrolling>
+            <CustomCursor />
             <PreloaderWrapper>
               {children}
             </PreloaderWrapper>

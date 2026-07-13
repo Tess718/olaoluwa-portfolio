@@ -5,9 +5,10 @@ import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { playClickSound, playHoverSound } from "@/lib/audio";
+
 import { useLenis } from 'lenis/react';
 import { usePathname } from "next/navigation";
+import { RolloverLink } from "@/components/animations/rollover-link";
 
 export function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -32,14 +33,12 @@ export function Navbar() {
   }, []);
 
   const toggleMenu = () => {
-    playClickSound();
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     if (pathname !== "/") {
       setIsMobileMenuOpen(false);
-      playClickSound();
       return; // Do not prevent default, let the link navigate
     }
 
@@ -52,69 +51,66 @@ export function Navbar() {
       }
     }
     setIsMobileMenuOpen(false);
-    playClickSound();
   };
 
   const renderNavLinks = () => (
     <>
-      <Link
+      <RolloverLink
         href="/"
-        onClick={(e) => handleScrollTo(e, 'top')}
-        onMouseEnter={playHoverSound}
-        className="text-sm font-medium hover:opacity-70 transition-opacity"
+        onClick={(e: any) => handleScrollTo(e, 'top')}
+        className="text-sm font-medium hover:opacity-100 transition-opacity"
       >
         Home
-      </Link>
-      <Link
+      </RolloverLink>
+      <RolloverLink
         href="/#about"
-        onClick={(e) => handleScrollTo(e, '#about')}
-        onMouseEnter={playHoverSound}
-        className="text-sm font-medium hover:opacity-70 transition-opacity"
+        onClick={(e: any) => handleScrollTo(e, '#about')}
+        className="text-sm font-medium hover:opacity-100 transition-opacity"
       >
         About
-      </Link>
-      <Link
+      </RolloverLink>
+      <RolloverLink
         href="/#selected-works"
-        onClick={(e) => handleScrollTo(e, '#selected-works')}
-        onMouseEnter={playHoverSound}
-        className="text-sm font-medium hover:opacity-70 transition-opacity"
+        onClick={(e: any) => handleScrollTo(e, '#selected-works')}
+        className="text-sm font-medium hover:opacity-100 transition-opacity"
       >
         Showcase
-      </Link>
-      <Link
+      </RolloverLink>
+      <RolloverLink
         href="/gallery"
         onClick={() => {
           setIsMobileMenuOpen(false);
-          playClickSound();
+          // Note: playClickSound is handled inside RolloverLink
         }}
-        onMouseEnter={playHoverSound}
-        className="text-sm font-medium hover:opacity-70 transition-opacity"
+        className="text-sm font-medium hover:opacity-100 transition-opacity"
       >
         Gallery
-      </Link>
-      <Link
+      </RolloverLink>
+      <RolloverLink
         href="/#contact"
-        onClick={(e) => handleScrollTo(e, '#contact')}
-        onMouseEnter={playHoverSound}
-        className="text-sm font-medium hover:opacity-70 transition-opacity"
+        onClick={(e: any) => handleScrollTo(e, '#contact')}
+        className="text-sm font-medium hover:opacity-100 transition-opacity"
       >
         Contact
-      </Link>
+      </RolloverLink>
     </>
   );
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-300 ${
-        scrolled 
-          ? "bg-background/80 backdrop-blur-md border-b border-foreground/10 py-3" 
+        scrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-foreground/10 py-3"
           : "bg-transparent py-6"
       }`}
     >
       <div className="flex items-center justify-between w-full">
-        <Link href="/" onClick={playClickSound} onMouseEnter={playHoverSound} className="font-bold text-xl tracking-tight z-50">
-          Olaoluwa.
-        </Link>
+        <RolloverLink
+          href="/"
+          className="font-bold text-xl tracking-tight z-50"
+        >
+          The Olaoluwa.
+        </RolloverLink>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
@@ -125,11 +121,9 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4 z-50">
           <button
             onClick={() => {
-              playClickSound();
               setTheme(resolvedTheme === "dark" ? "light" : "dark");
             }}
-            onMouseEnter={playHoverSound}
-            className="p-2 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-colors"
+            className="p-2 rounded-full bg-foreground/5 hover:bg-[#ec4624] transition-colors"
             aria-label="Toggle Dark Mode"
           >
             {mounted && resolvedTheme === "dark" ? (
