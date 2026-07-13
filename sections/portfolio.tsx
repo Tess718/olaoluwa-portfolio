@@ -66,7 +66,7 @@ export default function Portfolio() {
       </div>
 
       {/* --- DESKTOP LAYOUT --- */}
-      <div className="hidden md:block max-w-7xl mx-auto">
+      <div className="hidden md:block w-full mx-auto">
         {/* Outer Container to hold the shape */}
         <div className="relative w-full h-[550px] lg:h-[650px] rounded-tl-[40px] overflow-hidden">
           {/* The Base Image */}
