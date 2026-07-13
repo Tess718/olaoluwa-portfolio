@@ -37,9 +37,6 @@ export function AnimatedHeroImage() {
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [40, -40]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-40, 40]);
-
   useEffect(() => {
     // Flatten tilt when expanded
     if (expanded) {
@@ -49,9 +46,10 @@ export function AnimatedHeroImage() {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (expanded) return;
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
+      if (expanded || !containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
       mouseX.set(x);
       mouseY.set(y);
     };
@@ -96,13 +94,12 @@ export function AnimatedHeroImage() {
         />
       </motion.div>
 
-      {/* Tilt Wrapper for Thumbnail */}
+      {/* Cursor Follow Wrapper for Thumbnail */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
         style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
+          x: smoothX,
+          y: smoothY,
         }}
       >
         <motion.div
