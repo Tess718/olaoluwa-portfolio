@@ -124,7 +124,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   >
                     <Link
                       href={project.link || "#"}
-                      {...(project.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      {...(project.link && project.link !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground transition-colors group/link"
                     >
                       View Album
@@ -191,7 +191,7 @@ export default function GalleryAlt({ items = [] }: { items?: SelectedWorkItem[] 
                   </p>
                   <Link
                     href={project.link || "#"}
-                    {...(project.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(project.link && project.link !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors mt-2"
                   >
                     View Album

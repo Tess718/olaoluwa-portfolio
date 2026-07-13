@@ -3,6 +3,8 @@ import configPromise from "@/payload.config";
 import ParallaxGallery from "@/sections/parallax-gallery";
 import type { Metadata } from "next";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Gallery | The Olaoluwa",
   description: "Browse the full collection of photography work by Enoch Olaoluwa.",

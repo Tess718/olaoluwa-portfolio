@@ -6,6 +6,8 @@ import Testimonials from "@/sections/testimonials";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const revalidate = 0;
+
 export default async function Page() {
   const payload = await getPayload({ config: configPromise });
 

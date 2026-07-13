@@ -29,12 +29,13 @@ function ParallaxColumn({
   return (
     <motion.div ref={ref} style={{ y }} className="flex flex-col gap-3 md:gap-4">
       {images.map((image, index) => {
-        const Wrapper = image.link ? Link : "div";
+        const hasValidLink = image.link && image.link !== "#";
+        const Wrapper = hasValidLink ? Link : "div";
         return (
             <Wrapper
               key={index}
               href={image.link || "#"}
-              {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              {...(hasValidLink ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
             >
               <ImageWithSkeleton
@@ -135,12 +136,13 @@ export default function ParallaxGallery({
         <div className="md:hidden mt-3">
           <div className="grid grid-cols-2 gap-3">
             {col3.map((image, index) => {
-              const Wrapper = image.link ? Link : "div";
+              const hasValidLink = image.link && image.link !== "#";
+              const Wrapper = hasValidLink ? Link : "div";
               return (
                 <Wrapper
                   key={index}
                   href={image.link || "#"}
-                  {...(image.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(hasValidLink ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
                 >
                   <ImageWithSkeleton
