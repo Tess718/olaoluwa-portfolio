@@ -108,7 +108,7 @@ export function AnimatedHeroImage() {
             idle: {
               width: "140px",
               height: "140px",
-              opacity: isHovered && !expanded && !isResetting ? 1 : 0,
+              opacity: isHovered && !expanded && !isResetting ? 0.85 : 0,
               scale: isHovered && !expanded && !isResetting ? 1 : 0.8,
               borderRadius: "16px",
               transition: { duration: isResetting ? 0 : 0.4, ease: "easeOut" },

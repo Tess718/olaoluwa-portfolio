@@ -57,7 +57,7 @@ export default async function Page() {
     price: doc.price,
     description: doc.description,
     featured: doc.featured || false,
-    features: doc.features ? doc.features.map(f => f.feature) : [],
+    features: doc.features ? doc.features.map((f: any) => f.feature) : [],
   }));
 
   return (

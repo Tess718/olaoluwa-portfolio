@@ -19,7 +19,6 @@ export default function Pricing({ items = [] }: { items?: PricingItem[] }) {
         "1-hour session",
         "1 outfit",
         "3 professionally retouched photos",
-        "1 location",
         "Online delivery within 3–5 days"
       ]
     },
@@ -32,7 +31,6 @@ export default function Pricing({ items = [] }: { items?: PricingItem[] }) {
         "Up to 2-hour session",
         "2 outfits",
         "6 professionally retouched photos",
-        "1 location",
         "Online gallery",
         "Delivery within 3–5 days"
       ]
