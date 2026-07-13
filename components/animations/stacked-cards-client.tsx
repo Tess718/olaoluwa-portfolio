@@ -93,7 +93,7 @@ export function StackedCardsClient({ testimonials }: { testimonials: Testimonial
   });
 
   return (
-    <div ref={containerRef} className="relative md:pb-[30vh] lg:pb-0">
+    <div ref={containerRef} className="relative">
       {testimonials.map((testimonial, i) => {
         const targetScale = 1 - (testimonials.length - i) * 0.05;
         return (

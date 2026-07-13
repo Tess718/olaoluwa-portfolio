@@ -7,7 +7,7 @@ const inter = Inter({
 });
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col justify-center pt-40 gap-8">
+    <div className="lg:min-h-screen max-sm:min-h-screen flex flex-col justify-center pt-40 gap-8">
       <h1 className="md:text-5xl text-4xl uppercase font-semibold text-center text-foreground tracking-tight">
         Capturing the Art in the Everyday.
       </h1>
