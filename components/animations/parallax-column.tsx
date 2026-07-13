@@ -39,6 +39,7 @@ export function ParallaxColumn({
             href={image.link || "#"}
             {...(hasValidLink ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="relative w-full aspect-[3/4] overflow-hidden rounded-lg group block"
+            data-cursor="view album"
           >
             <ImageWithSkeleton
               src={image.src}

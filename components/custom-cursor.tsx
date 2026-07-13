@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 export function CustomCursor() {
-  const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [cursorText, setCursorText] = useState("");
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -24,21 +24,17 @@ export function CustomCursor() {
 
     const updateMousePosition = (e: MouseEvent) => {
       if (!isVisible) setIsVisible(true);
-      cursorX.set(e.clientX - 16);
-      cursorY.set(e.clientY - 16);
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button')
-      ) {
-        setIsHovering(true);
+      const cursorEl = target.closest('[data-cursor]');
+      if (cursorEl) {
+        setCursorText(cursorEl.getAttribute('data-cursor') || "");
       } else {
-        setIsHovering(false);
+        setCursorText("");
       }
     };
 
@@ -55,24 +51,42 @@ export function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [isVisible, cursorX, cursorY]);
+  }, [isVisible]);
 
   if (isTouchDevice || !isVisible) return null;
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center text-center overflow-hidden"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
+        translateX: "-50%",
+        translateY: "-50%",
         willChange: "transform",
       }}
       animate={{
-        scale: isHovering ? 1.5 : 1,
+        width: cursorText ? 120 : 16,
+        height: cursorText ? 36 : 16,
+        borderRadius: cursorText ? "8px" : "2px",
+        backgroundColor: "white",
       }}
       transition={{
-        scale: { type: "spring", stiffness: 300, damping: 20 },
+        type: "spring", stiffness: 300, damping: 20
       }}
-    />
+    >
+      <AnimatePresence>
+        {cursorText && (
+          <motion.span
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            className="text-[10px] font-bold uppercase tracking-widest text-black leading-tight"
+          >
+            {cursorText}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

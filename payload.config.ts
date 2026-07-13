@@ -5,6 +5,7 @@ import { Media } from './collections/Media'
 import { Gallery } from './collections/Gallery'
 import { SelectedWorks } from './collections/SelectedWorks'
 import { Testimonials } from './collections/Testimonials'
+import { Pricing } from './collections/Pricing'
 import { imagekitStorage } from '@humaan/payload-storage-imagekit'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -17,7 +18,7 @@ export default buildConfig({
     // Customize admin panel if needed
   },
   editor: lexicalEditor({}),
-  collections: [Media, Gallery, SelectedWorks, Testimonials],
+  collections: [Media, Gallery, SelectedWorks, Testimonials, Pricing],
   secret: process.env.PAYLOAD_SECRET || '',
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',

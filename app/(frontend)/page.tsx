@@ -3,6 +3,7 @@ import About from "@/sections/about";
 import GalleryAlt from "@/sections/gallery-alt";
 import Portfolio from "@/sections/portfolio";
 import Testimonials from "@/sections/testimonials";
+import Pricing from "@/sections/pricing";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
@@ -45,6 +46,20 @@ export default async function Page() {
     quote: doc.quote,
   }));
 
+  // Fetch pricing packages
+  const pricingRes = await payload.find({
+    collection: "pricing",
+    sort: "order,-createdAt",
+  });
+
+  const pricingItems = pricingRes.docs.map((doc) => ({
+    name: doc.name,
+    price: doc.price,
+    description: doc.description,
+    featured: doc.featured || false,
+    features: doc.features ? doc.features.map(f => f.feature) : [],
+  }));
+
   return (
     <div className="">
       <Home />
@@ -52,6 +67,7 @@ export default async function Page() {
       <Portfolio />
       <GalleryAlt items={selectedWorkItems} />
       <Testimonials items={testimonialItems} />
+      <Pricing items={pricingItems} />
     </div>
   );
 }
