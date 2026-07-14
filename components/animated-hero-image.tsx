@@ -106,11 +106,11 @@ export function AnimatedHeroImage() {
           animate={expanded ? "expanded" : "idle"}
           variants={{
             idle: {
-              width: "140px",
-              height: "140px",
+              width: "80px",
+              height: "80px",
               opacity: isHovered && !expanded && !isResetting ? 0.85 : 0,
               scale: isHovered && !expanded && !isResetting ? 1 : 0.8,
-              borderRadius: "16px",
+              borderRadius: "10px",
               transition: { duration: isResetting ? 0 : 0.4, ease: "easeOut" },
             },
             expanded: {
@@ -127,7 +127,7 @@ export function AnimatedHeroImage() {
               handleExpandComplete();
             }
           }}
-          className="relative overflow-hidden shadow-2xl pointer-events-auto"
+          className="relative overflow-hidden shadow-2xl pointer-events-auto backdrop-blur-md"
         >
           <ImageWithSkeleton
             src={HERO_IMAGES[nextIndex]}
