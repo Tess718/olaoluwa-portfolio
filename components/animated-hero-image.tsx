@@ -127,7 +127,7 @@ export function AnimatedHeroImage() {
               handleExpandComplete();
             }
           }}
-          className="relative overflow-hidden shadow-2xl pointer-events-auto backdrop-blur-md"
+          className="relative overflow-hidden shadow-2xl pointer-events-auto backdrop-blur-3xl"
         >
           <ImageWithSkeleton
             src={HERO_IMAGES[nextIndex]}

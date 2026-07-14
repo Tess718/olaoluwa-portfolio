@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "Visual storytelling and editorial photography designed to make you stop and look.",
     images: [
-      "https://ik.imagekit.io/kto43sqc5/IMG-20260710-WA0022.jpg?updatedAt=1783676357737",
+      "https://ik.imagekit.io/kto43sqc5/IMG_9888edit.jpg?updatedAt=1783639799909",
     ],
   },
   robots: {
