@@ -72,7 +72,7 @@ export function AnimatedHeroImage() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full md:w-100 mx-auto aspect-[4/5] md:aspect-auto lg:h-[80vh] md:h-[50vh] overflow-hidden rounded-2xl cursor-pointer"
+      className="relative w-full md:w-100 md:h-120 lg:h-125 mx-auto aspect-[4/5] md:aspect-auto overflow-hidden rounded-2xl cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
